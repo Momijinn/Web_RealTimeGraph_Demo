@@ -1,0 +1,2 @@
+# Web_RealTimeGraph_Demo
+Web上でデータをリアルタイムで表示するライブラリを調査したもの
