@@ -17,6 +17,10 @@ Web上でデータをリアルタイムで表示するライブラリ(smoothie.j
 
     ダウンロード先:[epoch.js](https://github.com/epochjs/epoch)
 
+## Demo
+[![](https://img.youtube.com/vi/HFzLl8qWOjY/0.jpg)](https://www.youtube.com/watch?v=HFzLl8qWOjY)
+
+
 ## Author
 [Twitter](https://twitter.com/momijinn_aka)
 
