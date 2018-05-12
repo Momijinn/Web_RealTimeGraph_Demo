@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="./js/page2_1/smoothie.js"></script>
+
+    <title>Smoothie Charts</title>
+</head>
+<body>
+    <p>smoothie.jsを使ったグラフ作成</p>
+    <p><a href="http://smoothiecharts.org/">http://smoothiecharts.org/</a></p>
+    <canvas id="mycanvas" style="width:400px; height:200px"></canvas>
+</body>
+</html>
+
+
+<script>
+
+    //初期化
+    var smoothie = new SmoothieChart();
+    smoothie.streamTo(document.getElementById("mycanvas"), 1000);
+
+    // データの定義
+    var x = new TimeSeries();
+    var y = new TimeSeries();
+
+    //グラフに表示するデータと色を入れる
+    smoothie.addTimeSeries(x, {strokeStyle:'rgb(255, 0, 0)'});
+    smoothie.addTimeSeries(y, {strokeStyle:'rgb(0, 255, 0)'});
+
+    //一定間隔に呼ばれる
+    setInterval(function() {
+        //乱数にてデータを取得
+        x.append(new Date().getTime(), Math.random());
+        y.append(new Date().getTime(), Math.random());
+    }, 1000);
+</script>

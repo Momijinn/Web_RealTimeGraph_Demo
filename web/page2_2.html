@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+    <script src="./js/page2_2/epoch.js"></script>
+    <title>Epoch</title>
+</head>
+<body>
+    <p>Epoch.jsを使ったグラフ作成</p>
+    <p><a href="https://epochjs.github.io/epoch/">https://epochjs.github.io/epoch/</a></p>
+    <p><a href="https://qiita.com/neka-nat@github/items/0607e01a19e093fdb631">参考</a></p>
+
+    <div id="graph" class="epoch" style="width:100%; height: 200px;"></div>
+</body>
+</html>
+
+<script>
+    //初期化
+    var data = [
+        { label: "x", values: [] },
+        { label: "y", values: [] },
+    ];
+    //リアルタイム折れ線グラフの作成
+    var lineChart = $('#graph').epoch({
+        type: 'time.line',
+        data: data,
+        axes: ['left', 'right', 'bottom']
+    });
+
+    //一定時間立つと呼ばれる
+    setInterval(function() {
+        //現在時刻を取得
+        var currentTime = parseInt(new Date().getTime() / 1000);
+
+        //乱数にてデータを生成
+        var myinput = [{"time":currentTime, "y": Math.random()},{"time":currentTime, "y": Math.random()}];
+        //グラフの更新
+        lineChart.push(myinput);
+    }, 10);
+</script>
+
+<!-- グラフの色 -->
+<style>
+    #graph .x .line { stroke: red; }
+    #graph .y .line { stroke: green; }
+</style>
